@@ -4,7 +4,13 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class BoardRoute extends AbstractrouteRoute {
+  @service moment;
+  beforeModel() {
+    this.moment.updateLocale('fr');
+  }
+
   @service userAuth; // ajout du service pour la deconnexion
+
 
   model() {
     let user = this.userAuth.user;
@@ -19,6 +25,8 @@ export default class BoardRoute extends AbstractrouteRoute {
       return retour;
     }
   }
+
+
 
   @action logout() { // action DECONEXION 
     this.userAuth.logout();
