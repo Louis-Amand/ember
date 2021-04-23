@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+{{page-title "Ex1"}}
+
+<!-- data-ng-click="clear()" truc du prof ancien a supprimé on va passer par du on click-->
+
+<div id="note" class="ng-scope">
+<div class="panel panel-primary">
+	<div class="panel-heading">Ex 1 : Note Application</div>
+	<div class="panel-body">
+		<div class="form-group">
+		<p><label for="message">Note :</label>
+            <Textarea class="form-control" @value={{this.content}}/>
+		</p>
+		<p>
+		<button  class="btn btn-primary" {{on "click" this.enregistrer}}>Enregistrer</button>
+		<button  class="btn btn-primary" {{on "click" this.effacer}}>Effacer</button> <!-- efface bien -->
+		</p>
+		
+		<div class="alert alert-info alert-dismissible" role="alert">Nombre de caractères restant : {{this.taille}}</div> <!-- compte bien RAS-->
+		<div role="alert"  class="alert alert-info alert-dismissible"  >{{this.informationDeTexte}} 
+		</div>		
+		</div>
+	</div>
+</div>
+</div>
+
+{{outlet}}
