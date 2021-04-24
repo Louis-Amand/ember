@@ -1,0 +1,50 @@
+{{page-title "Step1"}}
+<form class="img-rounded ng-pristine ng-valid ng-scope" id="choixMultiples">
+		<div class="text-center justify-content-center">
+		<h1 class="col-12">Sélectionnez vos produits</h1>
+		<div class="form-group row col-12 ">
+			<div class="inline-block col-12 col-md-5">
+				<label class="col-12">Produits disponibles : 
+                    <MultiSelect title="Double-cliquez pour ajouter" class="form-control " @elements={{this.dispoItems}}
+             @selected={{this.dispoItems}}
+             @onChange={{this.changeDispo}}  />
+
+                        
+
+				</label>
+				<div>
+					<ng-pluralize count="includedItems.length" when="{0:'Aucun produit à inclure',
+										1:'1 produit inclus',
+										'other':'{} produits inclus'}">Aucun produit à inclure</ng-pluralize>
+				</div>
+				
+
+			</div>
+			<div class="inline-block col-12 col-md-2 ">
+                <div class="row mb-2 mt-5 text-center justify-content-center ">
+				    <div title="Ajouter" class="btn btn-primary list-btn  col-5 "  {{ action "add" this.dispoItems this.includedItems this.dispoItems_ }}>>| </div>
+				</div>
+                <div class="row my-2 text-center justify-content-center">
+                    <div title="Ajouter tous" class="btn btn-primary list-btn  col-5" ng-click="addAllToIncluded()" ng-disabled="dispoItems.length<1">>>| </div>
+				</div>
+                <div class="row my-2 text-center justify-content-center">
+                    <div title="Retirer" class="btn btn-primary list-btn  col-5" {{ action "add" this.includedItems this.dispoItems this.includedItems_ }}>	&lt;|</div> 
+				</div>
+                <div class="row my-2 text-center justify-content-center">
+                    <div title="Retirer tous" class="btn btn-primary list-btn  col-5" ng-click="removeAllFromIncluded()" ng-disabled="includedItems.length<1" disabled="disabled">	&lt;&lt;|</div>
+			    </div>
+            </div>
+			<div class="inline-block col-12  col-md-5">
+				<label class="col-12">Produits à inclure : <MultiSelect title="Double-cliquez pour ajouter" class="form-control" @elements={{this.includedItems}} @selected={{this.includedItems_}} @onChange={{this.changeIncluded}}></MultiSelect>
+				</label> 
+			</div>
+		</div>
+		<div><div class="btn btn-primary" style="width:98%;text-align: right" ng-click="step=2" ng-disabled="includedItems.length<1" disabled="disabled">
+			<span>Etape suivante    </span><span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span>
+		</div></div>
+		</div>
+		
+	</form>
+
+
+{{outlet}}
