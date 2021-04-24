@@ -1,3 +1,8 @@
 {{page-title "TestNew"}}
 
+<h3>Formulaire de test de sauvegarde en local :</h3>
+<input @value = {{@model.nom}} placeholder="NOM"/>
+<button {{ action "save" @model}}>sauvegarder</button>
+
+
 {{outlet}}
