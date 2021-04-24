@@ -1,2 +1,41 @@
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 {{page-title "Ex2"}}
+
+
+<form id="services" class="ng-valid ng-scope ng-dirty ng-valid-parse" style="">
+
+	<h1>Services</h1>
+	<div class="alert alert-info">
+		<span>Choisissez les éléments à inclure</span>
+		<p>
+		{{@model.ServicesActives}}
+			
+		</p>
+	</div>
+	<ul class="list-group">
+		{{#each @model.services as |service|}}
+    	<li class="list-group-item h4 {{if service.active 'active' ''}}" style="border: none" {{action "toggleActive" service}}>
+    {{service.name}} <span class="ng-binding">${{service.price}}</span> 
+  </li>
+{{/each}}
+</ul>
+
+	<div class="total">
+		<!-- Format en currency. -->
+		Total: <span class="ng-binding">{{@model.sumActive}}</span>
+	</div>
+	<div>
+		<div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="..." ng-model="ckPromo" ng-click="applyCode()" class="ng-valid ng-dirty ng-valid-parse ng-touched" style="">
+      </span>
+			<input id="coderecup" type="text" class="form-control ng-valid ng-dirty ng-valid-parse ng-touched" aria-label="..." ng-model="codePromo" placeholder="Code promo" ng-keyup="applyCode()" spellcheck="false" data-ms-editor="true" style="">
+		</div>
+	</div>
+	<div class="total" ng-show="ckPromo&amp;&amp;codePromo" style="">
+		Remise :<span ng-if="!IsNumeric(remise)" class="ng-binding ng-scope">Code promo invalide</span><!-- end ngIf: !IsNumeric(remise) --><br>
+		Total avec remise :<span class="ng-binding"></span>
+	</div>
+</form>
 {{outlet}}

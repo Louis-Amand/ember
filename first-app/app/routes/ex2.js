@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
-import { datas } from 'tds/data/datas';
-import Services from 'tds/classes/services';
+import { datas } from 'first-app/data/datas';
+import Services from 'first-app/classes/services';
  
 export default class Ex2Route extends Route {
   model() {
