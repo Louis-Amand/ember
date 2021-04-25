@@ -1,0 +1,9 @@
+{{page-title "Add"}}
+<div class="col-12 mt-5">
+<h3>Ajouter un contact :</h3>
+<Input class="form-control col-12 col-md-3 my-2" @value = {{@model.nom}} placeholder="NOM"/>
+<Input class="form-control col-12 col-md-3 my-2" @value = {{@model.prenom}} placeholder="PRENOM"/>
+<Input class="form-control col-12 col-md-3 my-2" @value = {{@model.email}} placeholder="EMAIL"/>
+<button class="btn btn-primary" {{ action "add" @model}}>Ajouter le contact</button>
+</div>
+{{outlet}}

@@ -1,2 +1,36 @@
 {{page-title "Contacts"}}
+<div class="col-12">
+<h1 class="mb-5">Contacts</h1>
+<table class="table col-12 col-md-5">
+  <thead>
+  <tr>
+    <td>Nom</td>
+    <td>Prénom</td>
+    <td>Email</td>
+    <td>Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each @model.contacts as |contact|}}
+    <tr>
+      <td>{{contact.nom}}</td>
+      <td>{{contact.prenom}}</td>
+      <td>{{contact.email}}</td>
+      <td>
+        boutons a add
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+  </table>
+  
+        <LinkTo class="btn btn-primary" @route="contacts.add">Ajouter...</LinkTo>
+
+        {{#if @model.deletedCount}}
+        <button class="btn btn-danger" {{action "cancelDeletion" @model.deleteds}}>Annuler la suppression ( {{@model.deletedCount}} )</button>
+        {{/if}}
+
+    
+
+</div>
 {{outlet}}

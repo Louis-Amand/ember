@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-import MyContacts from 'tds/classes/contacts';
+import MyContacts from 'first-app/classes/contacts';
 import { action } from '@ember/object';
 
 export default class ContactsRoute extends Route {
@@ -12,7 +12,7 @@ export default class ContactsRoute extends Route {
 
   @action delete(contact){
     contact.deleteRecord();
-    
+
   }
 
   @action cancelDeletion(contacts){
