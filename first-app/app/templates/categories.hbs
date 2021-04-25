@@ -1,2 +1,20 @@
 {{page-title "Categories"}}
+<h1>test</h1>
+<BsTab as |tab|>
+
+  {{#each @model as |category|}}
+    <tab.pane @title={{category.nom}}>
+
+      {{#each @model.contact as |contact|}}
+        <ul>
+          <li>{{contact.nom}}</li>
+          <li>{{contact.prenom}}</li>
+          <li>{{contact.email}}</li>
+        </ul>
+      {{/each}}
+
+    </tab.pane>
+  {{/each}}
+
+</BsTab>
 {{outlet}}
