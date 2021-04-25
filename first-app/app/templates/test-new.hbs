@@ -1,8 +1,7 @@
 {{page-title "TestNew"}}
-
+<div class="col-12">
 <h3>Formulaire de test de sauvegarde en local :</h3>
-<input @value = {{@model.nom}} placeholder="NOM"/>
-<button {{ action "save" @model}}>sauvegarder</button>
-
-
+<Input class="form-control col-12 col-md-3" @value = {{@model.nom}} placeholder="NOM"/>
+<button class="btn btn-primary" {{ action "save" @model}}>sauvegarder</button>
+</div>
 {{outlet}}

@@ -1,0 +1,10 @@
+{{page-title "TestList"}}
+<div class="col-12">
+<h3>liste des contacts du store :</h3>
+<ul>
+    {{#each @model as |contact|}}
+        <li>{{contact.prenom}} {{contact.nom}}</li>
+    {{/each}}
+</ul>
+</div>
+{{outlet}}
