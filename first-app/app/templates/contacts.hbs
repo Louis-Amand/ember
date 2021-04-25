@@ -18,7 +18,7 @@
       <td>{{contact.prenom}}</td>
       <td>{{contact.email}}</td>
      <td>
-        <LinkTo class="btn btn-warning" @route="contacts.update"  >Modif.</LinkTo>
+        <LinkTo class="btn btn-warning" @route="contacts.update"   @model={{ contact.id }} >Modif.</LinkTo>
         <button {{action "delete" contact}}class="btn btn-danger ">Suppr.</button>
       </td>
     </tr>
