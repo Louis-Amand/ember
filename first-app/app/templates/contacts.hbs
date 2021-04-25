@@ -1,6 +1,7 @@
 {{page-title "Contacts"}}
 <div class="col-12">
 <h1 class="mb-5">Contacts</h1>
+<input type="text" class=" col-12 col-md-5 form-control" placeholder="Filtrer">
 <table class="table col-12 col-md-5">
   <thead>
   <tr>
@@ -17,10 +18,8 @@
       <td>{{contact.prenom}}</td>
       <td>{{contact.email}}</td>
      <td>
-       
-        <button {{action "delete" contact}}class="btn btn-danger btn-sm">
-          Suppr
-        </button>
+        <LinkTo class="btn btn-warning" @route="contacts.update"  >Modif.</LinkTo>
+        <button {{action "delete" contact}}class="btn btn-danger ">Suppr.</button>
       </td>
     </tr>
   {{/each}}
