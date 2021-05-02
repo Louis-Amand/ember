@@ -1,2 +1,12 @@
 {{page-title "Delete"}}
+
+<div class="ui red segment">
+
+  <h4 class="ui dividing header">Etes vous sur de vouloir supprimer cette section ?</h4>
+  
+  <button {{ action 'saveDeletions' @model }} class="ui yellow button">Oui</button>
+  <LinkTo @route="sections" class="ui red basic button">
+    Non
+  </LinkTo>
+</div>
 {{outlet}}

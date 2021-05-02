@@ -1,2 +1,34 @@
 {{page-title "AddProduct"}}
+
+<div class="ui green segment">
+  <form class="ui form">
+    <h4 class="ui dividing header">Ajouter un produit</h4>
+    <div class="field">
+      <label>Nom: </label>
+      <Input type="text" @value={{@model.name}} required/>
+    </div>
+    <div class="field">
+      <label>Prix: </label>
+      <Input type="number" @value={{@model.price}} value="0,00"  required/>
+    </div>
+    <div class="field">
+      <label>Description: </label>
+      <Input type="text" @value={{@model.description}} required/>
+    </div>
+    <div class="field">
+      <label>Section: </label>
+      <select name="sections">
+        {{#each @model.sections as |section|}}
+          <option>{{ section.name }}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button {{ action "addProduct" @model }} type="submit" class="ui green button">Ajouter</button>
+
+    <LinkTo @route="sections" class="ui red basic button">
+      Annuler
+    </LinkTo>
+  </form>
+</div>
+
 {{outlet}}

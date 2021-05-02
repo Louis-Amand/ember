@@ -1,2 +1,29 @@
+  
 {{page-title "Add"}}
+
+<div class="ui red segment">
+
+  <form class="ui form">
+    <h4 class="ui dividing header">Ajouter une section</h4>
+    <div class="field">
+
+      <label>Nom: </label>
+      <Input type="text" @value= {{@model.name}} required/>
+    </div>
+
+    <div class="field">
+
+      <label>Description: </label>
+      <Input type="text" @value= {{@model.description}}  required/>
+    </div>
+
+    <button {{ action 'addSection' @model }} type="submit" class="ui green button">Ajouter</button>
+
+    <LinkTo @route="sections" class="ui red basic button">
+      Annuler
+      
+    </LinkTo>
+  </form>
+</div>
+
 {{outlet}}

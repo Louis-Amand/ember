@@ -1,0 +1,62 @@
+{{page-title "Sections"}}
+
+<div class="ui red segment">
+      <LinkTo @route="board" class="ui blue button"> <!-- Redirection vers la route board -->
+    Tableau de Bord
+  </LinkTo>
+  <LinkTo @route="logout" class="ui red button" >   <!-- Redirection vers la route logout (deconnexion) -->
+ 
+    <i class="user icon"></i> Deconnexion
+  
+
+  </LinkTo>
+</div>
+<div class="ui blue segment">
+  <h3 class="">Gestion des sections</h3>
+  <LinkTo @route="sections.add" class="ui basic red button">
+    Créer une nouvelle section
+  </LinkTo>
+  <LinkTo @route="sections.addProduct" class="ui basic green button">
+  Créer un nouveau produit
+  </LinkTo>
+ {{ outlet "newsomething" }}
+<br/>
+  <div class="ui  segment">
+    <h4>Il y a un total de {{ @model.length }} sections :</h4>
+
+
+
+
+  <table class="ui table">
+      <thead>
+    <tr><th>Nom de la section</th>
+    <th>Description</th>
+    <th>Nombre de produits</th>
+    <th></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+    {{#each @model as |section|}}
+      <tr>
+        <td>
+          {{section.name}}
+        </td>
+        <td>
+          {{section.description}}
+        </td>
+        <td>
+          <p >{{ section.products.length }} produits.</p>
+        </td>
+        <td>
+          <LinkTo @route="sections.edit" @model={{section.id}} class="ui blue button">Modifier</LinkTo>
+        </td>
+        <td>
+          <LinkTo @route="sections.delete" @model={{section.id}} class="ui red button">Supprimer</LinkTo>
+        </td>
+      </tr>
+    {{/each}}
+
+    </tbody>
+  </table>
+</div>
+</div>

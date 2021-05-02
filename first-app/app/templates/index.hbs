@@ -1,7 +1,29 @@
+<!-- Cette page permet d'afficher le formulaire de connexion -->
+
 {{page-title "Index"}}
-<form {{action "login" @model on="submit"}}>
-    <Input type="email" @value={{@model.email}} placeholder="Votre email"/>
-    <Input type="password" @value={{@model.password}} placeholder="Votre mot de passe"/>
-    <button type="submit"{{action 'login' @model}}>Se connecter</button>
-</form>
+  
+  <form class="ui form">
+      <br/>
+      <br/>
+      <div class="field">
+        <label for="email">Adresse Mail :</label>
+        
+        <Input @value={{ @model.email }} type="email" /> <!-- Recupere le mail -->
+      </div>
+
+      <div class="field">
+      
+        <label for="password">Mot de passe :</label>
+      
+        <Input @value={{ @model.password }} type="password" /> <!-- Recupere le MDP -->
+      </div>
+    
+    <button {{ action "login" @model }} type="submit" class="ui green right labeled icon button">
+  <i class=" right arrow icon"></i>
+ Connexion
+</button> 
+
+   
+  </form>
+
 {{outlet}}

@@ -1,18 +1,40 @@
 {{page-title "Board"}}
-<div class="ui green segment">
-  <span class="ui label">{{@model.employee.email}}</span>
-  <button class="ui black button" {{action "logout"}}>
-    Logout
-  </button>
+
+<div class="ui red segment">
+      <LinkTo @route="sections" class="ui blue button"> <!-- Redirection vers la route sections -->
+    Gérer le Store
+  </LinkTo>
+
+
+
+  <LinkTo @route="logout" class="ui labeled button" tabindex="0">   <!-- Redirection vers la route logout (deconnexion) -->
+  
+  
+  <div class="ui red button">
+    <i class="user icon"></i> Deconnexion
+  </div>
+  
+  <a class="ui basic red left pointing label">{{ @model.employee.email }}</a>
+  </LinkTo>
 </div>
-<h2>Orders</h2>
+
+<div class="ui blue segment">
+<h2>Commandes</h2>
 <ul>
-  {{#each @model.orders as |order|}}
+
+  {{#each @model.orders as |order|}}  <!-- Pour toutes les commandes dans orders -->
     <li>
-      <LinkTo @route="order" @model={{order.id}}>
-        {{order.dateCreation}} <span class="ui circular label">{{order.count}}</span>
+     
+      <LinkTo @route="order" @model={{order.id}}>  <!-- attribuer pour redirection order avec la valeur de l'id -->
+     
+        {{order.dateCreation}} <span class="ui circular label">Il y en a {{order.count}}</span>  <!-- Afficher date de création et la quantité--> 
+     
       </LinkTo>
+    
     </li>
+<br/>
   {{/each}}
 </ul>
+
+</div>
 {{outlet}}

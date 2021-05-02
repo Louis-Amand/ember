@@ -1,0 +1,19 @@
+{{page-title "Products"}}
+
+<h4>Liste des produits de la section {{ @model.name }}</h4>
+
+<table class="ui table">
+  {{#each @model as |product|}}
+    <tr>
+      <td>
+        Nom: {{ product.name }}
+      </td>
+      <td>
+       Prix: {{ product.price }} €
+      </td>
+    </tr>
+  {{/each}}
+</table>
+
+<LinkTo @route="sections" class="ui blue button">Retour</LinkTo>
+{{outlet}}
