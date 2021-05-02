@@ -1,2 +1,14 @@
 {{page-title "Add"}}
+<label>Nom category</label>
+<Input @value={{@model.name}} placeholder="Entrez nom de category"/>
+
+<button {{ action "save" @model class="btn btn-primary"}}>Enregistrer</button>
+
+<div class="col-12 mt-5">
+<h3>Ajouter une categorie :</h3>
+<Input class="form-control col-12 col-md-3 my-2" @value = {{@model.name}} placeholder="NOM"/>
+<Input class="form-control col-12 col-md-3 my-2" @value = {{@model.prenom}} placeholder="PRENOM"/>
+<Input class="form-control col-12 col-md-3 my-2" @value = {{@model.email}} placeholder="EMAIL"/>
+<button class="btn btn-primary" {{ action "save" @model}}>Ajouter la categorie</button>
+</div>
 {{outlet}}
